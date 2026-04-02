@@ -6,4 +6,4 @@
 ![LLM](https://img.shields.io/badge/LLM-Qwen%20%7C%20Llama3-purple)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-**RoleGraph-RAG** is a lightweight, open-source Graph-RAG (Retrieval-Augmented Generation) system built entirely from scratch. It is designed for immersive character role-playing by strictly decoupling **Factual Memory (Objective Graph)** from **Persona (Subjective System Prompt)**.
+**RoleGraph-RAG** is a lightweight, open-source Graph-RAG (Retrieval-Augmented Generation) system built entirely from scratch. It is designed for immersive character role-playing by strictly decoupling Factual Memory (Objective Graph) from Persona (Subjective System Prompt).
