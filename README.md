@@ -29,7 +29,7 @@ Then open `http://localhost:5173` in your browser.
 
 ## 📂 Project Structure
 ```text
-Open-RoleGraph/
+RoleGraph-RAG/
 
 ├── Truth about Wakaba Mutsumi.txt  # Raw lore text (Self-curated from Wiki)
 ├── kg_optimized.json               # Extracted structured Graph data
