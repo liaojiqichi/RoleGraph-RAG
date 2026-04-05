@@ -6,3 +6,15 @@
 ![LLM](https://img.shields.io/badge/LLM-Qwen%20%7C%20Llama3-purple)
 
 **RoleGraph-RAG** is a lightweight, open-source Graph-RAG (Retrieval-Augmented Generation) system built entirely from scratch. It is designed for immersive character role-playing by strictly decoupling Factual Memory (Objective Graph) from Persona (Subjective System Prompt).
+
+## 📂 Project Structure
+```text
+Open-RoleGraph/
+├── data/
+│   ├── Truth about Wakaba Mutsumi.txt  # Raw lore text (Self-curated from Wiki)
+│   └── kg_optimized.json               # Extracted structured Graph data
+├── src/
+│   ├── build_knowledge_bases.py        # Script to build ChromaDB & NetworkX
+│   ├── retriever.py                    # Custom Hybrid Retriever engine
+│   └── triples_extraction.py           #To extract structured Graph data
+└── README.md
