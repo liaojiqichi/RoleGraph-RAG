@@ -15,5 +15,5 @@ Open-RoleGraph/
 ├── kg_optimized.json               # Extracted structured Graph data
 ├── build_knowledge_bases.py        # Script to build ChromaDB & NetworkX
 ├── retriever.py                    # Custom Hybrid Retriever engine
-├── triples_extraction.py           #To extract structured Graph data
+├── triples_extraction.py           # To extract structured Graph data
 └── README.md
