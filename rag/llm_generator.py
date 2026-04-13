@@ -1,6 +1,6 @@
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from retriever import HybridRetriever
+from rag.retriever import HybridRetriever
 MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B-Instruct"
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
