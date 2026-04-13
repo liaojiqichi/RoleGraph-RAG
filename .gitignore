@@ -5,12 +5,6 @@ node_modules/
 dist/
 build/
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
 # Logs
 logs/
@@ -51,3 +45,5 @@ chroma_db/fad9d4c3-b9c4-4900-9657-36ffe2ad954e/data_level0.bin
 chroma_db/fad9d4c3-b9c4-4900-9657-36ffe2ad954e/header.bin
 chroma_db/fad9d4c3-b9c4-4900-9657-36ffe2ad954e/length.bin
 chroma_db/fad9d4c3-b9c4-4900-9657-36ffe2ad954e/link_lists.bin
+chroma_db
+*.pyc

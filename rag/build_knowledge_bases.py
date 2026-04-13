@@ -4,13 +4,18 @@ import networkx as nx
 import chromadb
 from chromadb.utils import embedding_functions
 
-def build_knowledge_bases(json_filepath):
+GRAPH_JSON_PATH = os.getenv("GRAPH_JSON_PATH", "./kg_optimized.json")
+GRAPH_OUTPUT_PATH = os.getenv("GRAPH_OUTPUT_PATH", "./mutsumi_graph.graphml")
+CHROMA_PERSIST_DIR = os.getenv("CHROMA_PERSIST_DIR", "./chroma_db")
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "BAAI/bge-small-en-v1.5")
+
+def build_knowledge_bases(json_filepath=GRAPH_JSON_PATH):
     print("1. Loading optimized knowledge graph JSON...")
     if not os.path.exists(json_filepath):
         print(f"Error: {json_filepath} not found!")
         return
 
-    with open(json_filepath, 'r', encoding='utf-8') as f:
+    with open(json_filepath, "r", encoding="utf-8") as f:
         graph_data = json.load(f)
 
     nodes = graph_data.get("nodes", [])
@@ -21,6 +26,7 @@ def build_knowledge_bases(json_filepath):
     G = nx.DiGraph()
 
     for node in nodes:
+        node = dict(node)
         node_id = node.pop("id")
         for k, v in node.items():
             if isinstance(v, list):
@@ -34,17 +40,14 @@ def build_knowledge_bases(json_filepath):
         if source and target:
             G.add_edge(source, target, relation=relation)
 
-    graph_path = "../mutsumi_graph.graphml"
-    nx.write_graphml(G, graph_path)
-    print(f"NetworkX Graph built with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges.")
-    print(f"Graph saved to {graph_path}")
+    nx.write_graphml(G, GRAPH_OUTPUT_PATH)
+    print(f"Graph saved to {GRAPH_OUTPUT_PATH}")
 
     print("\n3. Building ChromaDB Vector Database...")
-    chroma_client = chromadb.PersistentClient(path="../chroma_db")
+    chroma_client = chromadb.PersistentClient(path=CHROMA_PERSIST_DIR)
 
-    print("Loading open-source embedding model (BAAI/bge-small-en-v1.5)...")
     sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(
-        model_name="BAAI/bge-small-en-v1.5"
+        model_name=EMBEDDING_MODEL
     )
 
     try:
@@ -57,9 +60,7 @@ def build_knowledge_bases(json_filepath):
         embedding_function=sentence_transformer_ef
     )
 
-    documents = []
-    metadatas = []
-    ids = []
+    documents, metadatas, ids = [], [], []
 
     for i, edge in enumerate(edges):
         source = edge.get("source")
@@ -69,9 +70,7 @@ def build_knowledge_bases(json_filepath):
         if not source or not target:
             continue
 
-        sentence = f"{source} {relation} {target}."
-        documents.append(sentence)
-
+        documents.append(f"{source} {relation} {target}.")
         metadatas.append({
             "source_node": str(source),
             "target_node": str(target),
@@ -85,31 +84,22 @@ def build_knowledge_bases(json_filepath):
             continue
 
         attributes = {k: v for k, v in node.items() if k != "id"}
-
-        if len(attributes) > 0:
+        if attributes:
             attr_strings = [f"{k.replace('_', ' ')}: {v}" for k, v in attributes.items()]
-            profile_sentence = f"Profile of {node_id}: " + "; ".join(attr_strings) + "."
-
-            documents.append(profile_sentence)
-
+            documents.append(f"Profile of {node_id}: " + "; ".join(attr_strings) + ".")
             metadatas.append({
                 "source_node": str(node_id),
                 "type": "node_profile"
             })
             ids.append(f"node_profile_{i}")
 
-    print(f"Extracted {len(documents)} text chunks for vector indexing.")
-
     batch_size = 100
     for i in range(0, len(documents), batch_size):
         collection.add(
-            documents=documents[i:i+batch_size],
-            metadatas=metadatas[i:i+batch_size],
-            ids=ids[i:i+batch_size]
+            documents=documents[i:i + batch_size],
+            metadatas=metadatas[i:i + batch_size],
+            ids=ids[i:i + batch_size]
         )
-        print(f"  Indexed batch {i//batch_size + 1}/{(len(documents)-1)//batch_size + 1}")
-
-    print("\nVector Database and Graph Database are ready!")
 
 if __name__ == "__main__":
-    build_knowledge_bases("kg_optimized.json")
+    build_knowledge_bases()
