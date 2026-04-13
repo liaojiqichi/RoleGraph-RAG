@@ -1,0 +1,65 @@
+:root {
+  --sakura-50: #fff5f7;
+  --sakura-100: #ffe0e8;
+  --sakura-200: #ffb3c8;
+  --sakura-300: #ff85a8;
+  --sakura-400: #ff5a8a;
+  --sakura-500: #e83d6f;
+  --sakura-600: #c4285a;
+
+  --cream: #fffbf4;
+  --warm-white: #fef9f5;
+  --petal: #fde8ef;
+  --blush: #f9c8d8;
+  --deep-rose: #c94070;
+
+  --text-dark: #2d1a2e;
+  --text-mid: #6b3d5a;
+  --text-light: #a0688a;
+  --text-muted: #c4a0b4;
+
+  --font-display: "Klee One", cursive;
+  --font-body: "M PLUS Rounded 1c", sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sakura petal background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(255, 180, 210, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 80%, rgba(255, 200, 220, 0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 160, 195, 0.12) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--blush); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sakura-300); }
