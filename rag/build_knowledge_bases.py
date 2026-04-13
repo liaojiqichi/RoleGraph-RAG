@@ -34,13 +34,13 @@ def build_knowledge_bases(json_filepath):
         if source and target:
             G.add_edge(source, target, relation=relation)
 
-    graph_path = "./mutsumi_graph.graphml"
+    graph_path = "../mutsumi_graph.graphml"
     nx.write_graphml(G, graph_path)
     print(f"NetworkX Graph built with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges.")
     print(f"Graph saved to {graph_path}")
 
     print("\n3. Building ChromaDB Vector Database...")
-    chroma_client = chromadb.PersistentClient(path="./chroma_db")
+    chroma_client = chromadb.PersistentClient(path="../chroma_db")
 
     print("Loading open-source embedding model (BAAI/bge-small-en-v1.5)...")
     sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(

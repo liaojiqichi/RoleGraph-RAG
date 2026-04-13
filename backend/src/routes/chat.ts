@@ -5,7 +5,7 @@ import { getCharacter2Reply } from "../characters/character2";
 
 export const chatRouter = Router();
 
-chatRouter.post("/", (req: Request, res: Response) => {
+chatRouter.post("/", async (req: Request, res: Response) => {
   const body = req.body as ChatRequest;
   const { characterId, message, history } = body;
 
@@ -14,16 +14,13 @@ chatRouter.post("/", (req: Request, res: Response) => {
     return;
   }
 
-  // Simulate a small delay to feel more natural
-  const delay = 600 + Math.random() * 800;
-
-  setTimeout(() => {
+  try {
     let reply: string;
 
     if (characterId === "wakaba") {
-      reply = getWakabaReply(history, message);
+      reply = await getWakabaReply(history, message);
     } else if (characterId === "character2") {
-      reply = getCharacter2Reply(history, message);
+      reply = await getCharacter2Reply(history, message);
     } else {
       res.status(400).json({ error: "Unknown characterId" });
       return;
@@ -31,7 +28,9 @@ chatRouter.post("/", (req: Request, res: Response) => {
 
     const response: ChatResponse = { reply, characterId };
     res.json(response);
-  }, delay);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to generate response" });
+  }
 });
 
 chatRouter.get("/characters", (_req: Request, res: Response) => {

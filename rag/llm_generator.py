@@ -1,7 +1,8 @@
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from rag.retriever import HybridRetriever
-MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+# MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+MODEL_NAME = "Qwen/Qwen2.5-3B-Instruct"
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForCausalLM.from_pretrained(

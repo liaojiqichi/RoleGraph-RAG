@@ -1,20 +1,86 @@
-# 🎸 RoleGraph-RAG
+# Character Chat App
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![NetworkX](https://img.shields.io/badge/Graph-NetworkX-green)
-![ChromaDB](https://img.shields.io/badge/Vector-ChromaDB-orange)
-![LLM](https://img.shields.io/badge/LLM-Llama3-purple)
+A React + TypeScript chat app with an Express backend. Currently uses dummy responses — built to be extended with an LLM later.
 
-**RoleGraph-RAG** is a lightweight, open-source Graph-RAG (Retrieval-Augmented Generation) system built entirely from scratch. It is designed for immersive character role-playing by strictly decoupling Factual Memory (Objective Graph) from Persona (Subjective System Prompt).
+## Requirements
 
-## 📂 Project Structure
-```text
-RoleGraph-RAG/
+- Node.js 18+
+- npm
 
-├── Truth about Wakaba Mutsumi.txt  # Raw lore text (Self-curated from Wiki)
-├── kg_optimized.json               # Extracted structured Graph data
-├── build_knowledge_bases.py        # Script to build ChromaDB & NetworkX
-├── retriever.py                    # Custom Hybrid Retriever engine
-├── llm_generator.py                # LLM loader and Persona Router
-├── triples_extraction.py           # To extract structured Graph data
-└── README.md
+## Getting Started
+
+You need two terminals running at the same time.
+
+**Terminal 1 — Backend**
+```bash
+cd chat-app/backend
+npm install
+npm run dev
+```
+The backend starts on `http://localhost:3001`.
+
+**Terminal 2 — Frontend**
+```bash
+cd chat-app/frontend
+npm install
+npm run dev
+```
+Then open `http://localhost:5173` in your browser.
+
+## Project Structure
+
+```
+chat-app/
+├── backend/
+│   └── src/
+│       ├── index.ts              # Express server entry point
+│       ├── types.ts              # Shared types
+│       ├── routes/chat.ts        # POST /api/chat endpoint
+│       └── characters/
+│           ├── wakaba.ts         # Wakaba's dummy responses (swap for LLM here)
+│           └── character2.ts     # Placeholder for Character 2
+├── frontend/
+│   └── src/
+│       ├── App.tsx               # Routes: / and /chat/:characterId
+│       ├── api.ts                # sendMessage() — calls the backend
+│       ├── types.ts              # Character definitions
+│       └── pages/
+│           ├── CharacterSelect   # Page 1: pick a character
+│           └── ChatPage          # Page 2: the chat UI
+└── rag/                          # RAG pipeline (to be implemented)
+```
+
+## API
+
+`POST /api/chat`
+```json
+{
+  "characterId": "wakaba",
+  "message": "Hello!",
+  "history": []
+}
+```
+Returns:
+```json
+{
+  "reply": "Ahh, you finally messaged me!",
+  "characterId": "wakaba"
+}
+```
+
+## Adding the LLM
+
+Open `backend/src/characters/wakaba.ts` and replace the body of `getWakabaReply()` with your LLM call. The full message history is already passed in as a parameter.
+
+```ts
+export async function getWakabaReply(history: ChatMessage[], message: string): Promise<string> {
+  // Replace this with your LLM call, e.g.:
+  // return await openai.chat({ system: WAKABA_SYSTEM_PROMPT, history, message });
+}
+```
+
+## Adding Character 2
+
+1. Add the persona logic in `backend/src/characters/character2.ts`
+2. Set `available: true` for Character 2 in `frontend/src/types.ts`
+3. Update the placeholder description and name to match the character
