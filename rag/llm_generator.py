@@ -1,6 +1,6 @@
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from rag.retriever import HybridRetriever
+from retriever import HybridRetriever
 # MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B-Instruct"
 MODEL_NAME = "Qwen/Qwen2.5-3B-Instruct"
 
@@ -68,13 +68,14 @@ def generate_response(query: str, persona: str = "Mutsumi"):
     
     text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     inputs = tokenizer([text], return_tensors="pt").to(model.device)
-    max_tokens = 200 if persona == "Mortis" else 50
+    max_tokens = 200 if persona == "Mortis" else 30
     
     outputs = model.generate(
         **inputs,
         max_new_tokens=max_tokens,
-        temperature=0.6,
+        temperature=0.2,
         do_sample=True,
+        top_p=0.9,
         pad_token_id=tokenizer.eos_token_id
     )
     

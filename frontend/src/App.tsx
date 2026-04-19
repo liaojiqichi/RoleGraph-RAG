@@ -4,7 +4,7 @@ import ChatPage from "./pages/ChatPage";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <Routes>
         <Route path="/" element={<CharacterSelect />} />
         <Route path="/chat/:characterId" element={<ChatPage />} />

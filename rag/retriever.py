@@ -17,16 +17,20 @@ class HybridRetriever:
         print("Knowledge Bases Loaded Successfully!")
 
     def retrieve(self, query: str, top_k: int = 3, distance_threshold: float = 0.5):
+        print("[Retriever] before collection.query")
         results = self.collection.query(
             query_texts=[query],
             n_results=top_k
         )
+        print("[Retriever] after collection.query")
 
         documents = results["documents"][0]
         metadatas = results["metadatas"][0]
         distances = results["distances"][0]
+        print("[Retriever] distances:", distances)
 
         if len(distances) == 0 or distances[0] > distance_threshold:
+            print("[Retriever] out of scope")
             return "[OUT_OF_SCOPE]", []
 
         entry_nodes = set()
@@ -40,6 +44,7 @@ class HybridRetriever:
                 if "target_node" in meta:
                     entry_nodes.add(meta["target_node"])
 
+        print("[Retriever] before graph expansion")
         context_parts.append("\n=== Graph-Expanded Memory (1-hop) ===")
         expanded_facts = set()
 
@@ -60,12 +65,9 @@ class HybridRetriever:
                     relation = edge_data.get("relation", "related to").replace("_", " ")
                     expanded_facts.add(f"- Fact: {neighbor} {relation} {node}.")
 
-        for fact in list(expanded_facts)[:10]:
-            context_parts.append(fact)
-
-        final_context = "\n".join(context_parts)
+        print("[Retriever] after graph expansion")
+        final_context = "\n".join(context_parts + list(expanded_facts)[:10])
         return final_context, list(entry_nodes)
-
 
 # retriever = HybridRetriever()
 #

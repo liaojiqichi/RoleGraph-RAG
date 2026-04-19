@@ -48,7 +48,7 @@ export default function ChatPage() {
       timestamp: Date.now(),
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    setMessages((prev) => [...messages, userMessage]);
     setInput("");
     setIsTyping(true);
     setError(null);
@@ -68,8 +68,8 @@ export default function ChatPage() {
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
-    } catch {
-      setError("Couldn't reach the server. Is the backend running?");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
     } finally {
       setIsTyping(false);
       setTimeout(() => inputRef.current?.focus(), 50);

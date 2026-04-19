@@ -1,0 +1,671 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d64" for="edge" attr.name="relation" attr.type="string" />
+  <key id="d63" for="node" attr.name="meaning" attr.type="string" />
+  <key id="d62" for="node" attr.name="alias" attr.type="string" />
+  <key id="d61" for="node" attr.name="title" attr.type="string" />
+  <key id="d60" for="node" attr.name="wanted_to" attr.type="string" />
+  <key id="d59" for="node" attr.name="faded" attr.type="string" />
+  <key id="d58" for="node" attr.name="became" attr.type="string" />
+  <key id="d57" for="node" attr.name="description" attr.type="string" />
+  <key id="d56" for="node" attr.name="job" attr.type="string" />
+  <key id="d55" for="node" attr.name="described_as" attr.type="string" />
+  <key id="d54" for="node" attr.name="type" attr.type="string" />
+  <key id="d53" for="node" attr.name="bad_at" attr.type="string" />
+  <key id="d52" for="node" attr.name="believed" attr.type="string" />
+  <key id="d51" for="node" attr.name="pushed_for" attr.type="string" />
+  <key id="d50" for="node" attr.name="begged" attr.type="string" />
+  <key id="d49" for="node" attr.name="wandered_around" attr.type="string" />
+  <key id="d48" for="node" attr.name="displayed_behavior" attr.type="string" />
+  <key id="d47" for="node" attr.name="becomes" attr.type="string" />
+  <key id="d46" for="node" attr.name="brings" attr.type="string" />
+  <key id="d45" for="node" attr.name="role" attr.type="string" />
+  <key id="d44" for="node" attr.name="mask_depiction" attr.type="string" />
+  <key id="d43" for="node" attr.name="mask_coverage" attr.type="string" />
+  <key id="d42" for="node" attr.name="mask_type" attr.type="string" />
+  <key id="d41" for="node" attr.name="mask_purpose" attr.type="string" />
+  <key id="d40" for="node" attr.name="rejected" attr.type="string" />
+  <key id="d39" for="node" attr.name="ran_away" attr.type="string" />
+  <key id="d38" for="node" attr.name="status" attr.type="string" />
+  <key id="d37" for="node" attr.name="refers_to_as_by_mortis" attr.type="string" />
+  <key id="d36" for="node" attr.name="refers_to_as_by_mutsumi" attr.type="string" />
+  <key id="d35" for="node" attr.name="points_out" attr.type="string" />
+  <key id="d34" for="node" attr.name="position" attr.type="string" />
+  <key id="d33" for="node" attr.name="speech_style" attr.type="string" />
+  <key id="d32" for="node" attr.name="means" attr.type="string" />
+  <key id="d31" for="node" attr.name="has" attr.type="string" />
+  <key id="d30" for="node" attr.name="consciousness_awakened" attr.type="string" />
+  <key id="d29" for="node" attr.name="identity" attr.type="string" />
+  <key id="d28" for="node" attr.name="performed_under_code_name" attr.type="string" />
+  <key id="d27" for="node" attr.name="refused" attr.type="string" />
+  <key id="d26" for="node" attr.name="blamed" attr.type="string" />
+  <key id="d25" for="node" attr.name="said" attr.type="string" />
+  <key id="d24" for="node" attr.name="struggled_with" attr.type="string" />
+  <key id="d23" for="node" attr.name="role_outside" attr.type="string" />
+  <key id="d22" for="node" attr.name="role_at_home" attr.type="string" />
+  <key id="d21" for="node" attr.name="started_playing_roles_at_age" attr.type="string" />
+  <key id="d20" for="node" attr.name="had" attr.type="string" />
+  <key id="d19" for="node" attr.name="practicing_guitar_since" attr.type="string" />
+  <key id="d18" for="node" attr.name="fringe_style" attr.type="string" />
+  <key id="d17" for="node" attr.name="hair_length" attr.type="string" />
+  <key id="d16" for="node" attr.name="hair_color" attr.type="string" />
+  <key id="d15" for="node" attr.name="hair_type" attr.type="string" />
+  <key id="d14" for="node" attr.name="hates" attr.type="string" />
+  <key id="d13" for="node" attr.name="wording" attr.type="string" />
+  <key id="d12" for="node" attr.name="has_side" attr.type="string" />
+  <key id="d11" for="node" attr.name="has_trouble" attr.type="string" />
+  <key id="d10" for="node" attr.name="gender" attr.type="string" />
+  <key id="d9" for="node" attr.name="personality" attr.type="string" />
+  <key id="d8" for="node" attr.name="role_in_band" attr.type="string" />
+  <key id="d7" for="node" attr.name="skill" attr.type="string" />
+  <key id="d6" for="node" attr.name="plays_instrument" attr.type="string" />
+  <key id="d5" for="node" attr.name="height" attr.type="string" />
+  <key id="d4" for="node" attr.name="zodiac_sign" attr.type="string" />
+  <key id="d3" for="node" attr.name="birth_date" attr.type="string" />
+  <key id="d2" for="node" attr.name="occupation" attr.type="string" />
+  <key id="d1" for="node" attr.name="age" attr.type="string" />
+  <key id="d0" for="node" attr.name="stage_name" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="Wakaba Mutsumi">
+      <data key="d0">Mortis</data>
+      <data key="d1">15</data>
+      <data key="d2">first-year high school student</data>
+      <data key="d3">January 14</data>
+      <data key="d4">Capricorn</data>
+      <data key="d5">152cm</data>
+      <data key="d6">guitar, piano</data>
+      <data key="d7">skilled guitarist</data>
+      <data key="d8">rhythm guitarist</data>
+      <data key="d9">stoic</data>
+      <data key="d10">girl</data>
+      <data key="d11">expressing self properly</data>
+      <data key="d12">caring</data>
+      <data key="d13">can come off as rude or insensitive</data>
+      <data key="d14">being in the spotlight, status as daughter of two celebrities</data>
+      <data key="d15">straight</data>
+      <data key="d16">ashy light green</data>
+      <data key="d17">past shoulders</data>
+      <data key="d18">straight-cut</data>
+      <data key="d19">childhood</data>
+      <data key="d20">almost no personal space</data>
+      <data key="d21">three</data>
+      <data key="d22">quiet, doll-like girl</data>
+      <data key="d23">sociable girl</data>
+      <data key="d24">inability to make guitar sing</data>
+      <data key="d25">Saki, move</data>
+      <data key="d26">self</data>
+      <data key="d27">Soyo's request to see Sakiko</data>
+      <data key="d28">Mortis</data>
+      <data key="d29">daughter of famous celebrities</data>
+      <data key="d30">after hearing Takamatsu Tomori's band play "Mayoiuta"</data>
+      <data key="d31">exceptional guitar skills</data>
+      <data key="d32">unity</data>
+      <data key="d33">extremely brief</data>
+      <data key="d34">rhythm guitarist of Ave Mujica</data>
+      <data key="d35">truths that others refuse to face</data>
+      <data key="d36">I</data>
+      <data key="d37">Mutsumi Chan</data>
+    </node>
+    <node id="Tsukinomori Girls' Academy" />
+    <node id="Ave Mujica" />
+    <node id="CRYCHIC">
+      <data key="d38">disbanded</data>
+    </node>
+    <node id="Toyokawa Sakiko">
+      <data key="d39">crying in the rain</data>
+      <data key="d40">reforming CRYCHIC</data>
+      <data key="d36">Saki</data>
+      <data key="d37">Sakiko chan</data>
+      <data key="d34">keyboardist of Ave Mujica</data>
+      <data key="d6">piano, keyboard</data>
+    </node>
+    <node id="Morfonica" />
+    <node id="Tsukinomori gardening club" />
+    <node id="cucumbers" />
+    <node id="tomatoes" />
+    <node id="eggplants" />
+    <node id="small white barrette" />
+    <node id="navy blue plaid dress" />
+    <node id="off-white ruffled collar" />
+    <node id="teal bow" />
+    <node id="black choker with white ruffles" />
+    <node id="off-white ankle socks" />
+    <node id="dark brown mary janes" />
+    <node id="Mortis">
+      <data key="d41">conceal identity</data>
+      <data key="d42">lace mask</data>
+      <data key="d43">covers face minus eyes</data>
+      <data key="d44">chrysanthemums</data>
+      <data key="d45">protector</data>
+      <data key="d46">depth and mystery to the band</data>
+      <data key="d9">highly sociable</data>
+      <data key="d47">popular</data>
+      <data key="d27">Mutsumi's request to see Sakiko</data>
+      <data key="d48">erratic</data>
+      <data key="d49">in the real world</data>
+      <data key="d50">a "doctor" to wake Mutsumi up</data>
+      <data key="d51">keeping Ave Mujica alive</data>
+      <data key="d52">Mortis would cease to exist if Ave Mujica disbanded</data>
+      <data key="d31">high-level theatrical acting</data>
+      <data key="d37">I</data>
+      <data key="d36">Mutsumi Chan</data>
+      <data key="d34">rhythm guitarist of Ave Mujica</data>
+      <data key="d53">playing guitar</data>
+    </node>
+    <node id="mask" />
+    <node id="red beret" />
+    <node id="loose off-white shirt with translucent sleeves" />
+    <node id="black translucent shawl with red lapels" />
+    <node id="black ruff" />
+    <node id="off-white jabot collar adorned with muted green gem" />
+    <node id="opened black skirt" />
+    <node id="red shorts adorned with gold buttons" />
+    <node id="black tights with black ankles adorned with black ribbons" />
+    <node id="red shoes" />
+    <node id="7-string heavy metal guitar" />
+    <node id="SCHECTER EX-24-7st Ave Mujica Proto Model">
+      <data key="d54">7-string heavy metal guitar</data>
+    </node>
+    <node id="guitar">
+      <data key="d55">truly Mutsumi's own</data>
+    </node>
+    <node id="Takafumi Wakaba">
+      <data key="d56">comedian</data>
+      <data key="d57">popular</data>
+    </node>
+    <node id="Minami Mori">
+      <data key="d56">actress</data>
+      <data key="d36">Minani Chan</data>
+      <data key="d37">Minami Chan</data>
+      <data key="d57">famous</data>
+    </node>
+    <node id="massive house">
+      <data key="d57">frequently visited by celebrities and socialites</data>
+    </node>
+    <node id="Lacus Mortis" />
+    <node id="death" />
+    <node id="Mortis mask" />
+    <node id="daisy motif" />
+    <node id="spotlight" />
+    <node id="celebrities" />
+    <node id="quiet Mutsumi">
+      <data key="d58">Mutsumi's host personality</data>
+    </node>
+    <node id="other roles">
+      <data key="d59">true</data>
+    </node>
+    <node id="Morfonica concert" />
+    <node id="Tsukinomori Music Festival" />
+    <node id="band" />
+    <node id="departure" />
+    <node id="studio" />
+    <node id="umbrella" />
+    <node id="CRYCHIC destruction" />
+    <node id="Nagasaki Soyo">
+      <data key="d37">Soyo Chan</data>
+      <data key="d36">Soyo</data>
+      <data key="d6">bass</data>
+      <data key="d60">reforming CRYCHIC</data>
+    </node>
+    <node id="Sakiko's situation" />
+    <node id="MyGO!!!!!" />
+    <node id="invitation" />
+    <node id="MyGO!!!!! concert" />
+    <node id="gift" />
+    <node id="homegrown cucumbers" />
+    <node id="chocolate bag" />
+    <node id="how the concert was" />
+    <node id="It was great" />
+    <node id="Mutsumi's reply" />
+    <node id="new band" />
+    <node id="Sakiko was about to break" />
+    <node id="to join" />
+    <node id="Ave Mujica first live">
+      <data key="d61">Primo dia in scaena</data>
+    </node>
+    <node id="Utenji Nyamu">
+      <data key="d62">Amoris</data>
+      <data key="d34">drummer of Ave Mujica</data>
+      <data key="d6">drum</data>
+    </node>
+    <node id="Budokan live">
+      <data key="d62">Nostri Nosctis</data>
+    </node>
+    <node id="Mutsumi face" />
+    <node id="media pressure" />
+    <node id="Mutsumi mother" />
+    <node id="private basement rehearsal room" />
+    <node id="Mutsumi private basement rehearsal room" />
+    <node id="public" />
+    <node id="hyperventilation" />
+    <node id="hallucinations" />
+    <node id="national tour">
+      <data key="d62">Continuatio Festi</data>
+    </node>
+    <node id="stage" />
+    <node id="pressure" />
+    <node id="dissociative identity breakdown" />
+    <node id="mind and body" />
+    <node id="Ave Mujica band" />
+    <node id="doll persona" />
+    <node id="Mutsumi body" />
+    <node id="other band members" />
+    <node id="Mortis's guitar" />
+    <node id="Mortis persona" />
+    <node id="abyss" />
+    <node id="cannot exist without Mutsumi" />
+    <node id="play role of Wakaba Mutsumi" />
+    <node id="abyss of Mutsumi imagination" />
+    <node id="exceptional guitar skills" />
+    <node id="high-level theatrical acting" />
+    <node id="performances" />
+    <node id="Wakaba">
+      <data key="d63">Waka means "young" and Ba means "leaf"</data>
+    </node>
+    <node id="school" />
+    <node id="cucumber flower" />
+    <node id="growing cucumber" />
+    <node id="mango juice" />
+    <node id="piano" />
+    <node id="Takamatsu Tomori">
+      <data key="d36">Tomori</data>
+      <data key="d60">reforming CRYCHIC</data>
+    </node>
+    <node id="Shiina Taki">
+      <data key="d36">Taki</data>
+    </node>
+    <node id="Misumi Uika">
+      <data key="d36">Uika</data>
+      <data key="d37">Uika Chan</data>
+      <data key="d6">guitar</data>
+      <data key="d34">lead vocalist and lead guitarist of Ave Mujica, lead vocalist of Sumimi</data>
+    </node>
+    <node id="Yahata Umiri">
+      <data key="d36">Umiri</data>
+      <data key="d37">Umiri Chan</data>
+      <data key="d6">bass</data>
+      <data key="d34">bassist of Ave Mujica</data>
+    </node>
+    <edge source="Wakaba Mutsumi" target="Tsukinomori Girls' Academy">
+      <data key="d64">location_of_lessons</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="Ave Mujica">
+      <data key="d64">member_of</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="CRYCHIC">
+      <data key="d64">member_of</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="Morfonica">
+      <data key="d64">watched_live_of</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="Tsukinomori gardening club">
+      <data key="d64">member_of</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="cucumbers">
+      <data key="d64">grows</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="tomatoes">
+      <data key="d64">grows</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="eggplants">
+      <data key="d64">grows</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="small white barrette">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="navy blue plaid dress">
+      <data key="d64">casual_attire</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="off-white ruffled collar">
+      <data key="d64">casual_attire</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="teal bow">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="black choker with white ruffles">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="off-white ankle socks">
+      <data key="d64">footwear</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="dark brown mary janes">
+      <data key="d64">footwear</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="7-string heavy metal guitar">
+      <data key="d64">owns</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="SCHECTER EX-24-7st Ave Mujica Proto Model">
+      <data key="d64">owns</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="guitar">
+      <data key="d64">plays</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="Takafumi Wakaba">
+      <data key="d64">father</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="massive house">
+      <data key="d64">residence</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="spotlight">
+      <data key="d64">grew_up_in</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="celebrities">
+      <data key="d64">child_of</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="Morfonica concert">
+      <data key="d64">watched</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="umbrella">
+      <data key="d64">held</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="CRYCHIC destruction">
+      <data key="d64">blamed_for</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="Sakiko's situation">
+      <data key="d64">refused to reveal</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="invitation">
+      <data key="d64">remained indifferent</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="MyGO!!!!! concert">
+      <data key="d64">attended</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="gift">
+      <data key="d64">left</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="It was great">
+      <data key="d64">replied</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="Sakiko was about to break">
+      <data key="d64">felt</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="to join">
+      <data key="d64">agreed</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="Ave Mujica first live">
+      <data key="d64">performed in</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="media pressure">
+      <data key="d64">experienced</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="private basement rehearsal room">
+      <data key="d64">owned</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="hyperventilation">
+      <data key="d64">experienced</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="hallucinations">
+      <data key="d64">experienced</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="stage">
+      <data key="d64">collapsed</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="pressure">
+      <data key="d64">broken_by</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="dissociative identity breakdown">
+      <data key="d64">suffered</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="mind and body">
+      <data key="d64">surrendered</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="Mortis">
+      <data key="d64">merged with</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="Mortis persona">
+      <data key="d64">killed</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="exceptional guitar skills">
+      <data key="d64">incorporated</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="high-level theatrical acting">
+      <data key="d64">incorporated</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="performances">
+      <data key="d64">incorporated into</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="school">
+      <data key="d64">grows_at</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="cucumber flower">
+      <data key="d64">uses_as_avatar</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="growing cucumber">
+      <data key="d64">has_as_wallpaper</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="mango juice">
+      <data key="d64">drinks</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="piano">
+      <data key="d64">takes_lessons</data>
+    </edge>
+    <edge source="Wakaba Mutsumi" target="Tsukinomori Music Festival">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Tsukinomori Girls' Academy" target="CRYCHIC">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Tsukinomori Girls' Academy" target="Mortis">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Tsukinomori Girls' Academy" target="Morfonica">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Ave Mujica" target="Budokan live">
+      <data key="d64">performed</data>
+    </edge>
+    <edge source="Ave Mujica" target="national tour">
+      <data key="d64">performed</data>
+    </edge>
+    <edge source="Ave Mujica" target="Tsukinomori Girls' Academy">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Ave Mujica" target="Nagasaki Soyo">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Ave Mujica" target="Toyokawa Sakiko">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="CRYCHIC" target="Toyokawa Sakiko">
+      <data key="d64">formed_by</data>
+    </edge>
+    <edge source="CRYCHIC" target="Wakaba Mutsumi">
+      <data key="d64">formed_by</data>
+    </edge>
+    <edge source="CRYCHIC" target="Mortis">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="CRYCHIC" target="Morfonica">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="CRYCHIC" target="Tsukinomori Music Festival">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="CRYCHIC" target="Takamatsu Tomori">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Toyokawa Sakiko" target="Wakaba Mutsumi">
+      <data key="d64">invited</data>
+    </edge>
+    <edge source="Toyokawa Sakiko" target="Morfonica concert">
+      <data key="d64">watched</data>
+    </edge>
+    <edge source="Toyokawa Sakiko" target="CRYCHIC">
+      <data key="d64">member_of</data>
+    </edge>
+    <edge source="Toyokawa Sakiko" target="Tsukinomori Girls' Academy">
+      <data key="d64">quit</data>
+    </edge>
+    <edge source="Toyokawa Sakiko" target="departure">
+      <data key="d64">announced</data>
+    </edge>
+    <edge source="Toyokawa Sakiko" target="studio">
+      <data key="d64">announcement_location</data>
+    </edge>
+    <edge source="Toyokawa Sakiko" target="new band">
+      <data key="d64">invited to join</data>
+    </edge>
+    <edge source="Toyokawa Sakiko" target="Morfonica">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Toyokawa Sakiko" target="Takamatsu Tomori">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Toyokawa Sakiko" target="Ave Mujica">
+      <data key="d64">member_of</data>
+    </edge>
+    <edge source="Mortis" target="mask">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Mortis" target="red beret">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Mortis" target="loose off-white shirt with translucent sleeves">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Mortis" target="black translucent shawl with red lapels">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Mortis" target="black ruff">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Mortis" target="off-white jabot collar adorned with muted green gem">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Mortis" target="opened black skirt">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Mortis" target="red shorts adorned with gold buttons">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Mortis" target="black tights with black ankles adorned with black ribbons">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Mortis" target="red shoes">
+      <data key="d64">wears</data>
+    </edge>
+    <edge source="Mortis" target="Lacus Mortis">
+      <data key="d64">stage_name_derived_from</data>
+    </edge>
+    <edge source="Mortis" target="death">
+      <data key="d64">symbolizes</data>
+    </edge>
+    <edge source="Mortis" target="other band members">
+      <data key="d64">interacts_with</data>
+    </edge>
+    <edge source="Mortis" target="Mortis's guitar">
+      <data key="d64">talked_to</data>
+    </edge>
+    <edge source="Mortis" target="abyss">
+      <data key="d64">fell into</data>
+    </edge>
+    <edge source="Mortis" target="cannot exist without Mutsumi">
+      <data key="d64">realized</data>
+    </edge>
+    <edge source="Mortis" target="play role of Wakaba Mutsumi">
+      <data key="d64">decided to integrate</data>
+    </edge>
+    <edge source="Mortis" target="abyss of Mutsumi imagination">
+      <data key="d64">found in</data>
+    </edge>
+    <edge source="Mortis" target="guitar">
+      <data key="d64">handed back</data>
+    </edge>
+    <edge source="Mortis" target="Morfonica">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Mortis" target="Takamatsu Tomori">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Minami Mori" target="Takafumi Wakaba">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Lacus Mortis" target="Wakaba Mutsumi">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Mortis mask" target="daisy motif">
+      <data key="d64">features</data>
+    </edge>
+    <edge source="Morfonica concert" target="Tsukinomori Music Festival">
+      <data key="d64">location</data>
+    </edge>
+    <edge source="Tsukinomori Music Festival" target="Toyokawa Sakiko">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Tsukinomori Music Festival" target="Morfonica">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Tsukinomori Music Festival" target="Tsukinomori Girls' Academy">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Nagasaki Soyo" target="Tsukinomori Girls' Academy">
+      <data key="d64">entered</data>
+    </edge>
+    <edge source="Nagasaki Soyo" target="MyGO!!!!!">
+      <data key="d64">formed</data>
+    </edge>
+    <edge source="Nagasaki Soyo" target="Wakaba Mutsumi">
+      <data key="d64">chased after</data>
+    </edge>
+    <edge source="Nagasaki Soyo" target="how the concert was">
+      <data key="d64">asked</data>
+    </edge>
+    <edge source="Nagasaki Soyo" target="Mutsumi's reply">
+      <data key="d64">angered by</data>
+    </edge>
+    <edge source="Nagasaki Soyo" target="cucumbers">
+      <data key="d64">returned</data>
+    </edge>
+    <edge source="Nagasaki Soyo" target="Mortis">
+      <data key="d64">took_care_of</data>
+    </edge>
+    <edge source="Nagasaki Soyo" target="Toyokawa Sakiko">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Nagasaki Soyo" target="CRYCHIC">
+      <data key="d64">member_of</data>
+    </edge>
+    <edge source="gift" target="homegrown cucumbers">
+      <data key="d64">contains</data>
+    </edge>
+    <edge source="gift" target="chocolate bag">
+      <data key="d64">packaged in</data>
+    </edge>
+    <edge source="Utenji Nyamu" target="Ave Mujica">
+      <data key="d64">member_of</data>
+    </edge>
+    <edge source="Utenji Nyamu" target="Mutsumi face">
+      <data key="d64">exposed</data>
+    </edge>
+    <edge source="Mutsumi mother" target="Wakaba Mutsumi">
+      <data key="d64">neglected</data>
+    </edge>
+    <edge source="Mutsumi private basement rehearsal room" target="public">
+      <data key="d64">exposed</data>
+    </edge>
+    <edge source="doll persona" target="Mutsumi body">
+      <data key="d64">took over</data>
+    </edge>
+    <edge source="doll persona" target="Mortis">
+      <data key="d64">identified_as</data>
+    </edge>
+    <edge source="Takamatsu Tomori" target="CRYCHIC">
+      <data key="d64">member_of</data>
+    </edge>
+    <edge source="Shiina Taki" target="CRYCHIC">
+      <data key="d64">member_of</data>
+    </edge>
+    <edge source="Shiina Taki" target="Mortis">
+      <data key="d64">co_occurs</data>
+    </edge>
+    <edge source="Misumi Uika" target="Ave Mujica">
+      <data key="d64">member_of</data>
+    </edge>
+    <edge source="Yahata Umiri" target="Ave Mujica">
+      <data key="d64">member_of</data>
+    </edge>
+    <edge source="Yahata Umiri" target="Wakaba Mutsumi">
+      <data key="d64">co_occurs</data>
+    </edge>
+  </graph>
+</graphml>

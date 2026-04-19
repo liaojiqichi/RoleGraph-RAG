@@ -6,6 +6,9 @@ import { getCharacter2Reply } from "../characters/character2";
 export const chatRouter = Router();
 
 chatRouter.post("/", async (req: Request, res: Response) => {
+  console.log("=== CHAT ROUTE HIT ===");
+  console.log("BODY:", req.body);
+
   const body = req.body as ChatRequest;
   const { characterId, message, history } = body;
 
@@ -29,7 +32,11 @@ chatRouter.post("/", async (req: Request, res: Response) => {
     const response: ChatResponse = { reply, characterId };
     res.json(response);
   } catch (err) {
-    res.status(500).json({ error: "Failed to generate response" });
+    console.error("Chat generation failed:", err);
+    res.status(500).json({
+      error: "Failed to generate response",
+      details: err instanceof Error ? err.message : String(err),
+    });
   }
 });
 

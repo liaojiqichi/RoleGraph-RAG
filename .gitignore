@@ -47,3 +47,5 @@ chroma_db/fad9d4c3-b9c4-4900-9657-36ffe2ad954e/length.bin
 chroma_db/fad9d4c3-b9c4-4900-9657-36ffe2ad954e/link_lists.bin
 chroma_db
 *.pyc
+
+core.*

@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from rag.llm_generator import generate_response 
+from llm_generator import generate_response
+import traceback
 
 app = FastAPI()
 
@@ -10,5 +11,12 @@ class ChatRequest(BaseModel):
 
 @app.post("/generate")
 def generate(req: ChatRequest):
-    reply, context = generate_response(req.query, req.persona)
-    return {"reply": reply, "context": context}
+    try:
+        print(f"[RAG] Received query: {req.query}, persona: {req.persona}")
+        reply, context = generate_response(req.query, req.persona)
+        print("[RAG] Generation succeeded")
+        return {"reply": reply, "context": context}
+    except Exception as e:
+        print("[RAG] Generation failed:", repr(e))
+        traceback.print_exc()
+        raise

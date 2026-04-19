@@ -5,17 +5,21 @@ import { chatRouter } from "./routes/chat";
 
 const app = express();
 
-const PORT = process.env.PORT || 3001;
+const PORT = 8500;
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 
-app.use(
-  cors({
-    origin: FRONTEND_URL,
-    credentials: true,
-  })
-);
+console.log("PORT:", PORT);
+console.log("FRONTEND_URL:", FRONTEND_URL);
 
+app.use(cors());
 app.use(express.json());
+
+app.get("/health", (_req, res) => {
+  res.json({
+    status: "ok",
+    message: "Backend is alive",
+  });
+});
 
 app.use("/api/chat", chatRouter);
 
