@@ -60,7 +60,7 @@ class HybridRetriever:
                     relation = edge_data.get("relation", "related to").replace("_", " ")
                     expanded_facts.add(f"- Fact: {neighbor} {relation} {node}.")
 
-        for fact in list(expanded_facts)[:10]:
+        for fact in list(expanded_facts)[:10]: # [:10] --> [:5]
             context_parts.append(fact)
 
         final_context = "\n".join(context_parts)
