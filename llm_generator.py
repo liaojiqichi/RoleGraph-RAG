@@ -1,12 +1,21 @@
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
+# from transformers import BitsAndBytesConfig
 from retriever import HybridRetriever
 MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+
+# quantization_config = BitsAndBytesConfig(
+    # load_in_4bit=True,
+    # bnb_4bit_compute_dtype=torch.bfloat16,
+    # bnb_4bit_use_double_quant=True,
+# )
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
-    torch_dtype=torch.bfloat16,
+    torch_dtype=torch.bfloat16, # comment this line if using 4-bit quantization
+    # quantization_config=quantization_config,
+    # attn_implementation="flash_attention_2",
     device_map="auto"
 )
 print("LLM Loaded successfully!")
