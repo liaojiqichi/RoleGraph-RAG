@@ -13,7 +13,8 @@ llm = Llama(
     model_path=model_path,
     n_ctx=2048,
     n_threads=4,
-    verbose=False 
+    verbose=False)
+
 print("LLM Loaded successfully on CPU!")
 
 retriever = HybridRetriever()
