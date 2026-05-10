@@ -7,7 +7,7 @@ class HybridRetriever:
         print("Loading Knowledge Bases...")
         self.chroma_client = chromadb.PersistentClient(path=db_path)
         self.embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-            model_name="BAAI/bge-small-en-v1.5"
+            model_name="BAAI/bge-base-en-v1.5"
         )
         self.collection = self.chroma_client.get_collection(
             name="mutsumi_knowledge",
