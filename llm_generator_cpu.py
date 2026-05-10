@@ -90,46 +90,28 @@ If [STRUCTURED_RETRIEVAL] appears, it means the answer is exact and should be tr
 Please respond in character.
 """
 
-    system_prompt = (
-        PROMPT_MORTIS
-        if persona == "Mortis"
-        else PROMPT_MUTSUMI
-    )
+    system_prompt = PROMPT_MORTIS if persona == "Mortis" else PROMPT_MUTSUMI
 
-    messages = [
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": user_input}
-    ]
-
-    text = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,
-        add_generation_prompt=True
-    )
-
-    inputs = tokenizer(
-        [text],
-        return_tensors="pt"
-    ).to(model.device)
+    full_prompt = f"""<|system|>
+{system_prompt}
+<|user|>
+{user_input}
+<|assistant|>
+"""
 
     max_tokens = 200 if persona == "Mortis" else 50
 
-    outputs = model.generate(
-        **inputs,
-        max_new_tokens=max_tokens,
+    output = llm(
+        full_prompt,
+        max_tokens=max_tokens,
         temperature=0.3,
-        repetition_penalty=1.1,
-        do_sample=True,
-        pad_token_id=tokenizer.eos_token_id
+        repeat_penalty=1.1,
+        stop=["<|user|>", "</s>"]
     )
 
-    response = tokenizer.decode(
-        outputs[0][inputs.input_ids.shape[1]:],
-        skip_special_tokens=True
-    )
+    response = output["choices"][0]["text"].strip()
 
     return response, context
-
 if __name__ == "__main__":
     print("\n" + "="*50)
     print("Welcome to RoleGraph-RAG: Mutsumi / Mortis Persona Test")
