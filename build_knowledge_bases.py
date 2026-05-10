@@ -42,9 +42,9 @@ def build_knowledge_bases(json_filepath):
     print("\n3. Building ChromaDB Vector Database...")
     chroma_client = chromadb.PersistentClient(path="./chroma_db")
 
-    print("Loading open-source embedding model (BAAI/bge-small-en-v1.5)...")
+    print("Loading open-source embedding model (BAAI/bge-base-en-v1.5)...")
     sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(
-        model_name="BAAI/bge-small-en-v1.5"
+        model_name="BAAI/bge-base-en-v1.5"
     )
 
     try:
