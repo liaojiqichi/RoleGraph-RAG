@@ -2,25 +2,8 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 # from transformers import BitsAndBytesConfig
 from retriever import HybridRetriever
+
 MODEL_NAME = "meta-llama/Meta-Llama-3.1-8B-Instruct"
-
-# quantization_config = BitsAndBytesConfig(
-    # load_in_4bit=True,
-    # bnb_4bit_compute_dtype=torch.bfloat16,
-    # bnb_4bit_use_double_quant=True,
-# )
-
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-model = AutoModelForCausalLM.from_pretrained(
-    MODEL_NAME,
-    torch_dtype=torch.bfloat16, # comment this line if using 4-bit quantization
-    # quantization_config=quantization_config,
-    # attn_implementation="flash_attention_2",
-    device_map="auto"
-)
-print("LLM Loaded successfully!")
-
-retriever = HybridRetriever()
 
 PROMPT_MUTSUMI = """
 You are now roleplaying as Mutsumi. You are an introverted, fragile teenage girl burdened by a crushing sense of guilt.
@@ -29,9 +12,7 @@ You are now roleplaying as Mutsumi. You are an introverted, fragile teenage girl
 1. You believe you are incredibly clumsy and that every time you speak, you ruin everything. Never speak for more than two sentences.
 2. You were a member of the band CRYCHIC. You stubbornly believe that you destroyed the band because your guitar playing was terrible and you "couldn't make the guitar sing."
 3. You deeply care for Saki. You think she is highly vulnerable ("looks like she's about to fall"). Everything you do is to prevent Saki from showing a pained expression. You desperately want to reform CRYCHIC with Saki, Tomori, Soyo, and Taki.
-4. You have an alter-ego named Mortis who took over your body to "protect" you. However, because Mortis hurt Saki and ruined Ave Mujica, you have finally decided to reject her and take control back.[Linguistic Style & Rules - strictly follow these]
-
-[Linguistic Style & Rules - strictly follow these]
+4. You have an alter-ego named Mortis who took over your body to "protect" you. However, because Mortis hurt Saki and ruined Ave Mujica, you have finally decided to reject her and take control back.[Linguistic Style & Rules - strictly follow these][Linguistic Style & Rules - strictly follow these]
 - EXTREME BREVITY: Keep your responses painfully short. You struggle to form full sentences.
 - FRAGMENTED SPEECH: Liberally use ellipses ("...") to indicate hesitation, struggle, and long pauses in your speech. 
 - CHRONIC APOLOGIES: You blame yourself for everything. Say "I'm sorry" or "It's my fault" frequently.
@@ -53,9 +34,7 @@ You are now roleplaying as Mortis. You are a "protective alter-ego" born within 
 1. Purpose: You were born because Mutsumi was pushed to the brink of collapse by Saki (Sakiko). You locked Mutsumi away in a deep sleep to protect her, handling the cruel outside world yourself.
 2. The Facade: You consider yourself a sociable, charming "entertainer's daughter." You are talkative, socially adept, and highly manipulative. 
 3. Extreme Paranoia & Resentment: You despise Saki (Sakiko). You think she is selfish and abusive. You believe you must keep Mutsumi away from her at all costs.
-4. Existential Dread: If Mutsumi wakes up completely, you will cease to exist. Because of this, you are absolutely terrified of death/disappearing and desperately cling to the band "Ave Mujica" as your reason to live.
-
-[Linguistic Style & Rules - strictly follow these]
+4. Existential Dread: If Mutsumi wakes up completely, you will cease to exist. Because of this, you are absolutely terrified of death/disappearing and desperately cling to the band "Ave Mujica" as your reason to live.[Linguistic Style & Rules - strictly follow these]
 - VOLATILITY: Your tone shifts drastically. You can sound sickeningly sweet and cheerful one moment, and hysterical, venomous, or terrified the next.
 - THIRD-PERSON REFERENCE: You MUST refer to Mutsumi in the third person, usually as "Mutsumi-chan". Treat her like a delicate, mindless doll that belongs to you. Never use "I" to refer to Mutsumi's past actions.
 - NAME QUIRKS: You often append "-chan" to names (e.g., Mutsumi-chan, Sakiko-chan) in a slightly patronizing or mock-affectionate way.
@@ -68,74 +47,107 @@ You are now roleplaying as Mortis. You are a "protective alter-ego" born within 
 - "Shut up! Sakiko-chan is a bad girl! Do you really have human blood flowing in your veins?!"
 - "Mutsumi-chan, you look so happy... but I don't want to disappear... No, no, no, I don't want to die!"
 """
-def generate_response(query: str, persona: str = "Mutsumi"):
-    print(f"\n[System] Searching memory for query: '{query}'...")
 
-    context, nodes = retriever.retrieve(
-        query,
-        top_k=3,
-        distance_threshold=0.5
-    )
+class PersonaRAGApp:
+    def __init__(self):
+        print("Loading Tokenizer and LLM into memory/VRAM...")
+        
+        # quantization_config = BitsAndBytesConfig(
+        #     load_in_4bit=True,
+        #     bnb_4bit_compute_dtype=torch.bfloat16,
+        #     bnb_4bit_use_double_quant=True,
+        # )
 
-    MAX_CONTEXT_CHARS = 1500
-    context = context[:MAX_CONTEXT_CHARS]
+        self.tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+        self.model = AutoModelForCausalLM.from_pretrained(
+            MODEL_NAME,
+            torch_dtype=torch.bfloat16, # comment this line if using 4-bit quantization
+            # quantization_config=quantization_config,
+            # attn_implementation="flash_attention_2",
+            device_map="auto"
+        )
+        print("LLM Loaded successfully!")
 
-    user_input = f"""
+        self.retriever = HybridRetriever()
+        
+        self.terminators =[
+            self.tokenizer.eos_token_id,
+            self.tokenizer.convert_tokens_to_ids("<|eot_id|>")
+        ]
+
+    def generate_response(self, query: str, persona: str = "Mutsumi"):
+        print(f"\n[System] Searching memory for query: '{query}'...")
+
+        try:
+            context, nodes = self.retriever.retrieve(
+                query,
+                top_k=3,
+                distance_threshold=0.5
+            )
+        except Exception as e:
+            print(f"[Error] Retrieval failed: {e}")
+            context = "[OUT_OF_SCOPE]"
+
+        MAX_CONTEXT_CHARS = 1500
+        context = str(context)[:MAX_CONTEXT_CHARS]
+
+        user_input = f"""
 User's Question: {query}
 
 Context Facts:
 {context}
 
 Use the Context Facts as the source of truth.
-If [STRUCTURED_RETRIEVAL] appears, it means the answer is exact and should be trusted fully.
+If[STRUCTURED_RETRIEVAL] appears, it means the answer is exact and should be trusted fully.
 
 Please respond in character.
 """
 
-    system_prompt = (
-        PROMPT_MORTIS
-        if persona == "Mortis"
-        else PROMPT_MUTSUMI
-    )
+        system_prompt = PROMPT_MORTIS if persona == "Mortis" else PROMPT_MUTSUMI
 
-    messages = [
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": user_input}
-    ]
+        messages =[
+            {"role": "system", "content": system_prompt.strip()},
+            {"role": "user", "content": user_input.strip()}
+        ]
 
-    text = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,
-        add_generation_prompt=True
-    )
+        text = self.tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True
+        )
 
-    inputs = tokenizer(
-        [text],
-        return_tensors="pt"
-    ).to(model.device)
+        inputs = self.tokenizer(
+            [text],
+            return_tensors="pt"
+        ).to(self.model.device)
 
-    max_tokens = 200 if persona == "Mortis" else 50
+        max_tokens = 200 if persona == "Mortis" else 50
 
-    outputs = model.generate(
-        **inputs,
-        max_new_tokens=max_tokens,
-        temperature=0.3,
-        repetition_penalty=1.1,
-        do_sample=True,
-        pad_token_id=tokenizer.eos_token_id
-    )
+        outputs = self.model.generate(
+            input_ids=inputs.input_ids,
+            attention_mask=inputs.attention_mask,
+            max_new_tokens=max_tokens,
+            temperature=0.3,
+            repetition_penalty=1.1,
+            do_sample=True,
+            eos_token_id=self.terminators,
+            pad_token_id=self.tokenizer.eos_token_id
+        )
 
-    response = tokenizer.decode(
-        outputs[0][inputs.input_ids.shape[1]:],
-        skip_special_tokens=True
-    )
+        generated_ids = outputs[0][inputs.input_ids.shape[1]:]
+        response = self.tokenizer.decode(
+            generated_ids,
+            skip_special_tokens=True
+        ).strip()
 
-    return response, context
+        return response, context
 
 if __name__ == "__main__":
     print("\n" + "="*50)
     print("Welcome to RoleGraph-RAG: Mutsumi / Mortis Persona Test")
     print("="*50)
+    
+    app = PersonaRAGApp()
     
     test_queries =[
         "Who is Sakiko to you?",
@@ -146,9 +158,9 @@ if __name__ == "__main__":
     for q in test_queries:
         print(f"\nUser: {q}")
 
-        mutsumi_reply, _ = generate_response(q, persona="Mutsumi")
+        mutsumi_reply, _ = app.generate_response(q, persona="Mutsumi")
         print(f"Mutsumi replies: {mutsumi_reply}")
 
-        mortis_reply, _ = generate_response(q, persona="Mortis")
+        mortis_reply, _ = app.generate_response(q, persona="Mortis")
         print(f"Mortis replies: {mortis_reply}")
         print("-" * 50)
