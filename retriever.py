@@ -117,7 +117,7 @@ class HybridRetriever:
         self,
         query,
         top_k=3,
-        distance_threshold=0.5
+        distance_threshold=0.4
     ):
 
         results = self.collection.query(
