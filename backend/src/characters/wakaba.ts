@@ -2,7 +2,7 @@ import { ChatMessage } from "../types";
 
 const RAG_API_URL =
   process.env.RAG_API_URL ||
-  "http://nv-service-3773a333757edd4ee01e792be3c59fbe:8501";
+  "http://nv-service-96c47261b3c5dcb26f6b012abc401924:8501";
 
 export async function getWakabaReply(
   _history: ChatMessage[],

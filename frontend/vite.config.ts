@@ -9,6 +9,7 @@ export default defineConfig({
     port: 5173,
     allowedHosts: [
       "1034ac32b8b292157750666977a46ece.app.az.nuvolos.cloud",
+      "1034ac32b8b292157750666977a46ece.proxy-eu1.nuvolos.cloud"
     ],
     proxy: {
       "/api": {
@@ -22,6 +23,7 @@ export default defineConfig({
     port: 5173,
     allowedHosts: [
       "1034ac32b8b292157750666977a46ece.app.az.nuvolos.cloud",
+      "1034ac32b8b292157750666977a46ece.proxy-eu1.nuvolos.cloud"
     ],
     proxy: {
       "/api": {
