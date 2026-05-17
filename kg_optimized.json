@@ -522,11 +522,6 @@
     {
       "relation": "joined",
       "source": "Wakaba Mutsumi",
-      "target": "Ave Mujica"
-    },
-    {
-      "relation": "joined_band",
-      "source": "Wakaba Mutsumi",
       "target": "CRYCHIC"
     },
     {
