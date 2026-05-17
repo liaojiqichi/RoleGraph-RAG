@@ -1045,6 +1045,16 @@
       "target": "MyGO!!!!!"
     },
     {
+      "relation": "formed",
+      "source": "Takamatsu Tomori",
+      "target": "MyGO!!!!!"
+    },
+    {
+      "relation": "formed",
+      "source": "Shiina Taki",
+      "target": "MyGO!!!!!"
+    },
+    {
       "relation": "chased after",
       "source": "Nagasaki Soyo",
       "target": "Wakaba Mutsumi"
