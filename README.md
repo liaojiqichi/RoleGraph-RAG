@@ -7,6 +7,8 @@
 
 **RoleGraph-RAG** is a lightweight, open-source Graph-RAG (Retrieval-Augmented Generation) system built entirely from scratch. It is designed for immersive character role-playing by strictly decoupling Factual Memory (Objective Graph) from Persona (Subjective System Prompt).
 
+![image](https://github.com/liaojiqichi/RoleGraph-RAG/blob/main/Data%20Extraction.png)
+
 ## 📂 Project Structure
 ```text
 RoleGraph-RAG/
@@ -18,6 +20,3 @@ RoleGraph-RAG/
 ├── llm_generator.py                # LLM loader and Persona Router
 ├── triples_extraction.py           # To extract structured Graph data
 └── README.md
-```text
-
-![image](https://github.com/liaojiqichi/RoleGraph-RAG/blob/main/Data%20Extraction.png)
