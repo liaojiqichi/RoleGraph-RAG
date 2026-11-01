@@ -18,4 +18,6 @@ RoleGraph-RAG/
 ├── llm_generator.py                # LLM loader and Persona Router
 ├── triples_extraction.py           # To extract structured Graph data
 └── README.md
+```text
+
 ![image](https://github.com/liaojiqichi/RoleGraph-RAG/blob/main/Data%20Extraction.png)
