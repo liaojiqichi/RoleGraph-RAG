@@ -8,7 +8,6 @@
 **RoleGraph-RAG** is a lightweight, open-source Graph-RAG (Retrieval-Augmented Generation) system built entirely from scratch. It is designed for immersive character role-playing by strictly decoupling Factual Memory (Objective Graph) from Persona (Subjective System Prompt).
 
 ![image](https://github.com/liaojiqichi/RoleGraph-RAG/blob/main/Data%20Extraction.png)
-![image](https://github.com/liaojiqichi/RoleGraph-RAG/blob/main/User%20Query%20Resolution.png)
 ![image](https://github.com/liaojiqichi/RoleGraph-RAG/blob/main/relation_graph_example.png)
 
 ## 📂 Project Structure
